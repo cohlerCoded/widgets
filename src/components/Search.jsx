@@ -26,6 +26,14 @@ export default function Search() {
   const renderedRes = res.map((match) => {
     return (
       <div key={res.pageid} className="item">
+        <div className="right floated content">
+          <a
+            href={`https://en.wikipedia.org?curid=${match.pageid}`}
+            className="ui button"
+          >
+            Go
+          </a>
+        </div>
         <div className="content">
           <div className="header">{match.title}</div>
           <span dangerouslySetInnerHTML={{ __html: match.snippet }}></span>
