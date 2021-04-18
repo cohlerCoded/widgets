@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 

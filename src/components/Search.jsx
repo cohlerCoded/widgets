@@ -1,10 +1,14 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 export default function Search() {
   const [term, setTerm] = useState("");
   console.log("I run with every render");
   useEffect(() => {
-    console.log("I run when term changes");
+    const search = async () => {
+      await axios.get("wiki");
+    };
+    search();
   }, [term]);
   return (
     <div>
