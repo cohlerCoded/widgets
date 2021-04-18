@@ -23,6 +23,17 @@ export default function Search() {
     }
   }, [term]);
 
+  const renderedRes = res.map((match) => {
+    return (
+      <div key={res.pageid} className="item">
+        <div className="content">
+          <div className="header">{match.title}</div>
+          {match.snippet}
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div>
       <div className="ui form">
@@ -37,6 +48,7 @@ export default function Search() {
           />
         </div>
       </div>
+      <div className="ui celled list">{renderedRes}</div>
     </div>
   );
 }
