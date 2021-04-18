@@ -18,14 +18,17 @@ export default function Search() {
       });
       setRes(data.query.search);
     };
-    if (term) {
-      search();
-    }
+    const timeOutId = setTimeout(() => {
+      if (term) {
+        search();
+      }
+    }, 500);
+    return () => clearTimeout(timeOutId);
   }, [term]);
 
   const renderedRes = res.map((match) => {
     return (
-      <div key={res.pageid} className="item">
+      <div key={match.pageid} className="item">
         <div className="right floated content">
           <a
             href={`https://en.wikipedia.org?curid=${match.pageid}`}
