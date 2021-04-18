@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Search() {
   const [term, setTerm] = useState("");
-  console.log(term);
+  console.log("I run with every render");
+  useEffect(() => {
+    console.log("I run when term changes");
+  }, [term]);
   return (
     <div>
       <div className="ui form">
