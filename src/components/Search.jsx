@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 
 export default function Search() {
   const [term, setTerm] = useState("");
-  console.log("I run with every render");
+  const [res, setRes] = useState([]);
+
   useEffect(() => {
     const search = async () => {
-      await axios.get("https://en.wikipedia.org/w/api.php", {
+      const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
         params: {
           action: "query",
           list: "search",
@@ -15,9 +16,13 @@ export default function Search() {
           srsearch: term,
         },
       });
+      setRes(data.query.search);
     };
-    search();
+    if (term) {
+      search();
+    }
   }, [term]);
+
   return (
     <div>
       <div className="ui form">
