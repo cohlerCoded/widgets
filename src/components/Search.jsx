@@ -28,7 +28,7 @@ export default function Search() {
       <div key={res.pageid} className="item">
         <div className="content">
           <div className="header">{match.title}</div>
-          {match.snippet}
+          <span dangerouslySetInnerHTML={{ __html: match.snippet }}></span>
         </div>
       </div>
     );
