@@ -4,14 +4,16 @@ export default function Dropdown({ options, selected, onSelectedChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   useEffect(() => {
-    document.body.addEventListener(
-      "click",
-      (e) => {
-        if (ref.current.contains(e.target)) return;
-        setIsOpen(false);
-      },
-      { capture: true }
-    );
+    const onBodyClick = (e) => {
+      if (ref.current.contains(e.target)) return;
+      setIsOpen(false);
+    };
+    document.body.addEventListener("click", onBodyClick, { capture: true });
+    return () => {
+      document.body.removeEventListener("click", onBodyClick, {
+        capture: true,
+      });
+    };
   }, []);
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) return null;
