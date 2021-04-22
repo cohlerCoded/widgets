@@ -8,6 +8,7 @@ const options = [
   { label: "Hindi", value: "hi" },
   { label: "Japanese", value: "ja" },
   { label: "French", value: "fr" },
+  { label: "Spanish", value: "es" },
 ];
 
 export default function Translate() {
