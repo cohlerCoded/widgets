@@ -6,6 +6,8 @@ const options = [
   { label: "Afrikaans", value: "af" },
   { label: "Arabic", value: "ar" },
   { label: "Hindi", value: "hi" },
+  { label: "Japanese", value: "ja" },
+  { label: "French", value: "fr" },
 ];
 
 export default function Translate() {
