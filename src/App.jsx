@@ -26,12 +26,17 @@ const options = [
   { label: "A Shade of Blue", value: "blue" },
 ];
 
+const showPath = () => {
+  if (window.location.pathname === "/") return <Accordion items={items} />;
+  if (window.location.pathname === "/search") return <Search />;
+  if (window.location.pathname === "/dropdown") return <Dropdown />;
+  if (window.location.pathname === "/translate") return <Translate />;
+};
+
 export default function App() {
   return (
     <div>
-      {/* <h1>Widgets App</h1>
-      <Accordion items={items} /> */}
-      {/* <Search /> */}
+      {showPath()}
       {/* {showDropdown ? (
         <Dropdown
           options={options}
@@ -39,7 +44,6 @@ export default function App() {
           selected={selected}
         />
       ) : null} */}
-      <Translate />
     </div>
   );
 }
